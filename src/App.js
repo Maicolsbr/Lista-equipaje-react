@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+function Item({ name, isPacked }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <li className="item">
+      {name} {isPacked && '✓'}
+    </li>
   );
 }
 
-export default App;
+export default function PackingList() {
+  return (
+    <section>
+      <h1>Lista de equipaje de Sully</h1>
+      <ul>
+        <Item
+          name="Traje espacial"
+          isPacked={true}
+        />
+        <Item
+          name="Casco con una hoja dorada"
+          isPacked={true}
+        />
+        <Item
+          name="Foto de Tam"
+          isPacked={false}
+        />
+      </ul>
+    </section>
+  );
+}
